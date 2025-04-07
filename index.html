@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Machine Learning Driven Biomechanical Analysis of Throwing Motion Using Bidirectional Long Short-Term Memory and Temporal Attention Models</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f4f7fa;
+      color: #222;
+      line-height: 1.6;
+    }
+    header {
+      background: linear-gradient(to right, #1a73e8, #4285f4);
+      color: white;
+      padding: 2rem 3rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+    header p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0.5rem auto 0;
+    }
+    main {
+      padding: 3rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section {
+      margin-bottom: 3rem;
+    }
+    h2 {
+      color: #1a73e8;
+      margin-bottom: 1rem;
+    }
+    img.graph {
+      width: 100%;
+      margin: 1rem 0;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #1a73e8;
+      color: white;
+      margin-top: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>A Novel Approach to Studying Human Movement</h1>
+    <p>Machine Learning Driven Biomechanical Analysis of Throwing Motion Using Bidirectional Long Short-Term Memory and Temporal Attention Models</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Summary</h2>
+      <p>This project explores a low-cost, AI-powered system for analyzing human movement, specifically the throwing motion in baseball. It uses wearable IMU sensors and a BiLSTM neural network with attention to predict pitch velocity and extract biomechanical insights.</p>
+    </section>
+
+    <section>
+      <h2>Why Throwing?</h2>
+      <p>Throwing is one of the most biomechanically complex human motions. It requires coordinated action from the legs, hips, torso, and arm. Injuries are common in youth baseball, and expensive analysis tools are not accessible to most players. This project presents a scalable and affordable alternative.</p>
+    </section>
+
+    <section>
+      <h2>Data Collection</h2>
+      <p>20 competitive baseball players performed 20 throws each, creating a dataset of over 400 throwing sequences, which translates to 120,000 timesteps, or individual data points in total—used to train the model. A complementary filter fused accelerometer and gyroscope data. The result was a set of 20 features per timestep, normalized and padded for ML input.</p>
+      <div style="margin-top: 1rem;">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/vMc5X4QbFZk" title="Data Collection Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <div style="margin-top: 1rem;">
+        <iframe width="100%" height="315" src="https://www.youtube.com/embed/LTEBJ-NF4hM" title="Behind the Scenes Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </section>
+
+    <section>
+      <h2>Model Architecture</h2>
+      <p>A BiLSTM model with temporal attention was used to capture biomechanical dependencies in the throwing sequence. It achieved a Mean Absolute Error of 3.5 mph on the test set, learning patterns like hip-shoulder separation that correlate with higher speeds.</p>
+    </section>
+
+    <section>
+      <h2>Biomechanical Insights</h2>
+      <p>High-speed throws showed strong activation in hip sensors and broad attention across the motion sequence. Slower throws showed localized attention and shoulder dominance, indicating less efficient mechanics and higher injury risk.</p>
+    </section>
+
+    <section>
+      <h2>Applications</h2>
+      <ul>
+        <li>Sports performance tracking</li>
+        <li>Injury prevention and rehab</li>
+        <li>Assistive tech and prosthetics</li>
+        <li>Ergonomics and workplace safety</li>
+        <li>Gait and posture analysis</li>
+        <li>Early detection of neurological conditions</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Future Directions</h2>
+      <ul>
+        <li>Expand dataset and participant diversity</li>
+        <li>Add more sensors and improve real-time feedback</li>
+        <li>Extend use beyond baseball into rehab and clinical care</li>
+        <li>Commercialize for broader adoption</li>
+      </ul>
+    </section>
+      <section>
+      <h2>Software & Code</h2>
+      <p>The entire data pipeline—from real-time sensor ingestion to preprocessing and model inference—was developed in Python and run in Google Colab. The BiLSTM with attention model was implemented using TensorFlow and trained on the collected throwing motion dataset.</p>
+      <p>Explore the full implementation in this Colab notebook: <a href="https://colab.research.google.com/drive/1OlGwYABf4zN_s58eClnuo4AzomNRv6C4?usp=sharing" target="_blank">Open Notebook</a></p>
+    </section>
+  </main>
+
+  <footer>
+    A Noval Approach to Studying Human Movements<br>
+    Created for GVRSF 2025
+  </footer>
+</body>
+</html>
