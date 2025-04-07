@@ -83,6 +83,34 @@
     </section>
 
     <section>
+      <h2>Model Architecture</h2>
+      <p>A BiLSTM model with temporal attention was used to capture biomechanical dependencies in the throwing sequence. It achieved a Mean Absolute Error of 3.5 mph on the test set, learning patterns like hip-shoulder separation that correlate with higher speeds.</p>
+    </section>
+
+    <section>
+      <h2>System Design</h2>
+      <p>The system used two MPU6050 IMUs mounted on the
+        hip and upper throwing arm. IMUs, or Inertial Measurement Units, are electronic
+        devices that measure and report the acceleration (using an accelerometer) and 
+        angular velocity (using a gyroscope). 
+      </p>
+      <p>Both IMUs are connected via wire to an Arduino UNO R4 Wifi, a microcontroller, 
+        through the communication protocol I2C. Communication between computer 
+        and microcontroller uses a Bluetooth module on the Arduino UNO for real-time 
+        wireless data transfer. 
+        </p>
+
+    </section>
+
+
+    <section>
+      <h2>Software & Code</h2>
+      <p>A C++ Arduino sketch was developed to control the Arduino UNO R4, enabling it to collect data from both MPU6050 sensors and transmit it wirelessly via Bluetooth.</p>
+      <p>The entire data pipeline—from real-time sensor ingestion to preprocessing and model inference—was developed in Python and run in Google Colab. The BiLSTM with attention model was implemented using TensorFlow and trained on the collected throwing motion dataset.</p>
+      <p>Explore the full implementation in this Google Colab notebook: <a href="https://colab.research.google.com/drive/1OlGwYABf4zN_s58eClnuo4AzomNRv6C4?usp=sharing" target="_blank">Open Notebook</a></p>
+    </section>
+
+    <section>
       <h2>Data Collection</h2>
       <p>20 competitive baseball players performed 20 throws each, creating a dataset of over 400 throwing sequences, which translates to 120,000 timesteps, or individual data points in total—used to train the model. A complementary filter fused accelerometer and gyroscope data. The result was a set of 20 features per timestep, normalized and padded for ML input.</p>
       <div style="margin-top: 1rem;">
@@ -93,10 +121,6 @@
       </div>
     </section>
 
-    <section>
-      <h2>Model Architecture</h2>
-      <p>A BiLSTM model with temporal attention was used to capture biomechanical dependencies in the throwing sequence. It achieved a Mean Absolute Error of 3.5 mph on the test set, learning patterns like hip-shoulder separation that correlate with higher speeds.</p>
-    </section>
 
     <section>
       <h2>Biomechanical Insights</h2>
@@ -123,11 +147,6 @@
         <li>Extend use beyond baseball into rehab and clinical care</li>
         <li>Commercialize for broader adoption</li>
       </ul>
-    </section>
-      <section>
-      <h2>Software & Code</h2>
-      <p>The entire data pipeline—from real-time sensor ingestion to preprocessing and model inference—was developed in Python and run in Google Colab. The BiLSTM with attention model was implemented using TensorFlow and trained on the collected throwing motion dataset.</p>
-      <p>Explore the full implementation in this Google Colab notebook: <a href="https://colab.research.google.com/drive/1OlGwYABf4zN_s58eClnuo4AzomNRv6C4?usp=sharing" target="_blank">Open Notebook</a></p>
     </section>
       <p style="text-align: center; margin: 1.5rem auto; font-size: 1.1rem; background: #fff3cd; padding: 1rem; border-left: 4px solid #ffc107; max-width: 700px; border-radius: 6px;">
       View the full project poster: <a href="img/poster.pdf" target="_blank">Download Poster (PDF)</a>
