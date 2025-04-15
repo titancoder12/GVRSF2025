@@ -89,27 +89,28 @@
     </section>
 
     <section>
-      <h2>System Design</h2>
-      <p>The system used two MPU6050 IMUs mounted on the
-        hip and upper throwing arm. IMUs, or Inertial Measurement Units, are electronic
-        devices that measure and report the acceleration (using an accelerometer) and 
-        angular velocity (using a gyroscope). 
+      <h2>System Overview</h2>
+      <p><strong>Microcontrollers and IMUs:</strong>
+        The system uses an Arduino Uno R4 WiFi microcontroller connected to two MPU6050 Inertial Measurement Units (IMUs) to collect motion data.</p>
+
+      <p><strong>Firmware:</strong>
+        Custom firmware written in C++ runs on the microcontroller, enabling real-time communication with the sensors.
       </p>
-      <p>Both IMUs are connected via wire to an Arduino UNO R4 Wifi, a microcontroller, 
-        through the communication protocol I2C. Communication between computer 
-        and microcontroller uses a Bluetooth module on the Arduino UNO for real-time 
-        wireless data transfer. 
-        </p>
+
+      <p>
+       <strong>Data Collection Software:</strong> 
+        A Python script running on a MacBook connects to the microcontroller via Bluetooth for real-time wireless data transfer. It extracts the data and stores it as CSV files.
+      </p>
+
+
+      <p>
+        <strong>Analysis and Inference Software:</strong>
+ TensorFlow, a machine learning framework, processes the stored data to train BiLSTM models with attention mechanisms and perform inference—providing insight into biomechanical patterns.
+      </p>
 
     </section>
 
 
-    <section>
-      <h2>Software & Code</h2>
-      <p>A C++ Arduino sketch was developed to control the Arduino UNO R4, enabling it to collect data from both MPU6050 sensors and transmit it wirelessly via Bluetooth.</p>
-      <p>The entire data pipeline—from real-time sensor ingestion to preprocessing and model inference—was developed in Python and run in Google Colab. The BiLSTM with attention model was implemented using TensorFlow and trained on the collected throwing motion dataset.</p>
-      <p>Explore the full implementation in this Google Colab notebook: <a href="https://colab.research.google.com/drive/1OlGwYABf4zN_s58eClnuo4AzomNRv6C4?usp=sharing" target="_blank">Open Notebook</a></p>
-    </section>
 
     <section>
       <h2>Data Collection</h2>
